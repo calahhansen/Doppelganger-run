@@ -1,8 +1,8 @@
 # The Titans Team Members:
-Calah - Project Lead
-Nermin - Lead Designer
-Kong - Front End Developer
-Nolan - Back End Developer
+Calah - Project Lead<br>
+Nermin - Lead Designer<br>
+Kong - Front End Developer<br>
+Nolan - Back End Developer<br>
 Jack - Back End Developer
 
 # How Team Members Contribute to the Titan Project:
