@@ -8,3 +8,13 @@ Running short on time? Need an extra hand? Need to be in two places at once? Use
 *Main Page<br>
 *Profile page<br>
 *Tasks page
+
+## Technologies
+⦁	Node<br>
+⦁	Express<br>
+⦁	React<br>
+⦁	mySQL<br>
+⦁	Heroku<br>
+⦁	Passport<br>
+⦁	Encrypt<br>
+
