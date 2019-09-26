@@ -1,9 +1,16 @@
-How Team Members Contribute to the Titan Project:
+# The Titans Team Members:
+Calah - Project Lead
+Nermin - Lead Designer
+Kong - Front End Developer
+Nolan - Back End Developer
+Jack - Back End Developer
+
+# How Team Members Contribute to the Titan Project:
 Branch Types:
 Master branch (Production Environment - ONLY the Development branch will feed into this branch)
 Development branch (all other branches feed into this branch for knitting/testing/reviewing/de-bugging)
 
-Steps for creating good pull requests:
+# Steps for creating good pull requests:
 Create my new branch
 
 git checkout Development
