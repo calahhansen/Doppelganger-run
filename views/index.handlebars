@@ -39,16 +39,3 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
-
-<script>
-var url = "http://api.hostip.info/get_json.php?ip=24.66.128.2";
-
-$(document).ready(function() {
-    $.get(url, function(data) {
-        alert(data.city);
-        $('#city').text(data.city);
-        console.log(data.city)
-    });
-});
-
-</script>

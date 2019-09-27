@@ -1,8 +1,51 @@
+var url = "http://api.hostip.info/get_json.php?ip=24.66.128.2";
+let city;
+
+
+function getScript(url, success) {
+      var script = document.createElement('script');
+      script.src = url;
+      var head = document.getElementsByTagName('head')[0],
+          done = false;
+      // Attach handlers for all browsers
+      script.onload = script.onreadystatechange = function() {
+        if (!done && (!this.readyState
+             || this.readyState == 'loaded'
+             || this.readyState == 'complete')) {
+          done = true;
+          success();
+          script.onload = script.onreadystatechange = null;
+          head.removeChild(script);
+        }
+      };
+      head.appendChild(script);
+  };
+
+
+getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',function() {
+        // Yay jQuery is ready \o/
+    }); 
+
+$(document).ready(function() {
+    $.get(url, function(data) {
+        $('#city').text(data.city);
+        city = data.city;
+    });
+});
+
+function myFunction() {
+  setTimeout(function(){
+    console.log(city);
+    }, 1000);
+};
+myFunction();
+
 // Get references to page elements
 const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
 const exampleCreatorEl = document.getElementById("example-creator");
 const exampleCategoryEl = document.getElementById("example-category");
+const exampleCityEl = city;
 const submitBtnEl = document.getElementById("submit");
 const exampleListEl = document.getElementById("example-list");
 
@@ -64,7 +107,8 @@ const handleFormSubmit = function(event) {
     text: exampleTextEl.value.trim(),
     description: exampleDescriptionEl.value.trim(),
     creator: exampleCreatorEl.value.trim(),
-    category: exampleCategoryEl.value.trim()
+    category: exampleCategoryEl.value.trim(),
+    city: exampleCityEl.value.trim()
   };
 
   if (!(example.text && example.description && example.creator && example.category)) {
@@ -80,6 +124,7 @@ const handleFormSubmit = function(event) {
   exampleDescriptionEl.value = "";
   exampleCreatorEl.value = "";
   exampleCategoryEl.value = "";
+  exampleCityEl.value = "";
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
