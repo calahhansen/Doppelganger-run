@@ -28,6 +28,14 @@
           {{#each tasks}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="tasks/{{this.id}}">{{this.text}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.creator}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.description}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.category}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.city}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
