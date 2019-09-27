@@ -9,7 +9,7 @@ const exampleListEl = document.getElementById("example-list");
 // The API object contains methods for each kind of request we'll make
 const API = {
   saveExample: function(example) {
-    return fetch("/api/examples", {
+    return fetch("/api/tasks", {
       headers: {
         "Content-Type": "application/json"
       },
@@ -18,10 +18,10 @@ const API = {
     }).then(res => res.json());
   },
   getExamples: function() {
-    return fetch("/api/examples").then(res => res.json());
+    return fetch("/api/tasks").then(res => res.json());
   },
   deleteExample: function(id) {
-    return fetch("/api/examples/" + id,{
+    return fetch("/api/tasks/" + id,{
       method: "DELETE"
     }).then(res => res.json);
   }
@@ -33,7 +33,7 @@ const refreshExamples = function() {
     const exampleEls = data.map(function(example) {
       const aEl = document.createElement("a")
       aEl.innerHTML = example.text;
-      aEl.setAttribute("href", "/example/" + example.id);
+      aEl.setAttribute("href", "/tasks/" + example.id);
 
       const liEl = document.createElement("li")
       liEl.classList.add("list-group-item")

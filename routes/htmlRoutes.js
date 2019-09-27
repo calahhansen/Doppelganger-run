@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // Load Task page and pass in an Task by id
-  app.get("/task/:id", function(req, res) {
+  app.get("/tasks/:id", function(req, res) {
     db.Task.findOne({ where: { id: req.params.id } }).then(function(dbTask) {
       res.render("task", {
         task: dbTask
