@@ -1,5 +1,6 @@
 var url = "http://api.hostip.info/get_json.php?ip=24.66.128.2";
 let city;
+let exampleCityEl;
 
 
 function getScript(url, success) {
@@ -23,7 +24,7 @@ function getScript(url, success) {
 
 
 getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',function() {
-        // Yay jQuery is ready \o/
+        console.log("Yay jQuery is ready");
     }); 
 
 $(document).ready(function() {
@@ -35,8 +36,9 @@ $(document).ready(function() {
 
 function myFunction() {
   setTimeout(function(){
-    console.log(city);
-    }, 1000);
+    exampleCityEl = city;
+    console.log(exampleCityEl);
+    }, 500);
 };
 myFunction();
 
@@ -45,7 +47,6 @@ const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
 const exampleCreatorEl = document.getElementById("example-creator");
 const exampleCategoryEl = document.getElementById("example-category");
-const exampleCityEl = city;
 const submitBtnEl = document.getElementById("submit");
 const exampleListEl = document.getElementById("example-list");
 
@@ -108,7 +109,7 @@ const handleFormSubmit = function(event) {
     description: exampleDescriptionEl.value.trim(),
     creator: exampleCreatorEl.value.trim(),
     category: exampleCategoryEl.value.trim(),
-    city: exampleCityEl.value.trim()
+    city: exampleCityEl
   };
 
   if (!(example.text && example.description && example.creator && example.category)) {
