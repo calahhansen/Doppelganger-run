@@ -1,3 +1,47 @@
+var url = "http://api.hostip.info/get_json.php?ip=24.66.128.2";
+let city;
+let exampleCityEl;
+
+
+function getScript(url, success) {
+      var script = document.createElement('script');
+      script.src = url;
+      var head = document.getElementsByTagName('head')[0],
+          done = false;
+      // Attach handlers for all browsers
+      script.onload = script.onreadystatechange = function() {
+        if (!done && (!this.readyState
+             || this.readyState == 'loaded'
+             || this.readyState == 'complete')) {
+          done = true;
+          success();
+          script.onload = script.onreadystatechange = null;
+          head.removeChild(script);
+        }
+      };
+      head.appendChild(script);
+  };
+
+
+getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',function() {
+        console.log("Yay jQuery is ready");
+    }); 
+
+$(document).ready(function() {
+    $.get(url, function(data) {
+        $('#city').text(data.city);
+        city = data.city;
+    });
+});
+
+function myFunction() {
+  setTimeout(function(){
+    exampleCityEl = city;
+    console.log(exampleCityEl);
+    }, 500);
+};
+myFunction();
+
 // Get references to page elements
 const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
@@ -64,7 +108,8 @@ const handleFormSubmit = function(event) {
     text: exampleTextEl.value.trim(),
     description: exampleDescriptionEl.value.trim(),
     creator: exampleCreatorEl.value.trim(),
-    category: exampleCategoryEl.value.trim()
+    category: exampleCategoryEl.value.trim(),
+    city: exampleCityEl
   };
 
   if (!(example.text && example.description && example.creator && example.category)) {
@@ -80,6 +125,7 @@ const handleFormSubmit = function(event) {
   exampleDescriptionEl.value = "";
   exampleCreatorEl.value = "";
   exampleCategoryEl.value = "";
+  exampleCityEl.value = "";
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
