@@ -1,7 +1,5 @@
-var url = "http://api.hostip.info/get_json.php?ip=24.66.128.2";
 let city;
 let exampleCityEl;
-
 
 function getScript(url, success) {
       var script = document.createElement('script');
@@ -27,20 +25,18 @@ getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',fu
         console.log("Yay jQuery is ready");
     }); 
 
-$(document).ready(function() {
-    $.get(url, function(data) {
-        $('#city').text(data.city);
-        city = data.city;
-    });
-});
 
-function myFunction() {
-  setTimeout(function(){
-    exampleCityEl = city;
-    console.log(exampleCityEl);
-    }, 500);
-};
-myFunction();
+    $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+      console.log("Everything: " + data.geobytesfqcn);
+      console.log("City: " + data.geobytescity);
+      console.log("State: " + data.geobytesregion);
+      console.log("Country: " + data.geobytescountry);
+      console.log("Continent: " + data.geobytesmapreference);
+      console.log("Currency Code: " + data.geobytescurrencycode);
+      console.log("Latitude: " + data.geobyteslatitude);
+      console.log("Longitude: " + data.geobyteslongitude);
+      exampleCityEl = data.geobytesfqcn
+    });
 
 // Get references to page elements
 const exampleTextEl = document.getElementById("example-text");
@@ -113,7 +109,7 @@ const handleFormSubmit = function(event) {
   };
 
   if (!(example.text && example.description && example.creator && example.category)) {
-    alert("You must enter an example text and description!");
+    alert("You must enter aa title, description, creator, and category!");
     return;
   }
 
