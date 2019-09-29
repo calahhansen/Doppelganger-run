@@ -1,3 +1,7 @@
 models/index.js
 node_modules
 package.json
+config/passport.js
+public/js/index.js
+package-lock.json
+public/styles/styles.css
