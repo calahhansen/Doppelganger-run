@@ -5,3 +5,4 @@ config/passport.js
 public/js/index.js
 package-lock.json
 public/styles/styles.css
+public/js/login.js
