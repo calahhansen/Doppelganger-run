@@ -1,11 +1,11 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load logIn page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("logIn");
   });
 
+  //Home
   app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
       res.render("index", {
