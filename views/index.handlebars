@@ -5,9 +5,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="profile">Profile</a>
-                    <a class="nav-item nav-link" href="#">Log Out</a>
+                    <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/profile">Profile</a>
+                    <a class="nav-item nav-link" href="/logIn">Log Out</a>
                   </div>
                 </div>
               </nav>
@@ -26,10 +26,6 @@
             <label for="example-description">Description</label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
           </div>
-          <div class="form-group">
-            <label for="example-creator">Creator</label>
-            <textarea class="form-control" id="example-creator" aria-describedby="example-creator" placeholder="Enter Creator"></textarea>
-          </div>
           <label for="example-category">Category</label>
 <select class="form-control" id="example-category" aria-describedby="example-category" name="cars">
     <option value="Indoor Task">Indoor Task</option>
@@ -47,8 +43,6 @@
           {{#each tasks}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="tasks/{{this.id}}">{{this.text}}</a>
-            <br>
-            <a href="tasks/{{this.id}}">{{this.creator}}</a>
             <br>
             <a href="tasks/{{this.id}}">{{this.description}}</a>
             <br>

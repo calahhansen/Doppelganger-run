@@ -1,7 +1,15 @@
+/* ================================== Main Home Page ========================================== */
+
 .list-group-item {
   line-height: 2.5;
 }
-/* Container Log-in Main Section */
+
+body {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+
+/* ========================== Container Log-in Main Section ===================================*/
 .container {
   border-style: groove;
   border-radius: 5px;
@@ -28,12 +36,13 @@
 .modal-header {
   padding: 2px 16px;
   background-color: #5cb85c;
-  color: white;
+  color: whitesmoke;
 }
 
 /* Modal Body */
 .modal-body {
   padding: 2px 16px;
+  color: black;
 }
 
 /* Modal Footer */
@@ -73,3 +82,46 @@
 #registerBtn {
   float: right;
 }
+
+/* ================================= CREATE PROFILE ====================================== */
+
+#mainContainer {
+  background-color: #fefefe;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  border: none;
+}
+
+#profileImage {
+  margin-bottom: 20px;
+  margin-left: 40%;
+}
+
+/* link to photo */
+.active {
+  color: rgb(95, 173, 241);
+}
+
+#emailInput {
+  margin-right: 200px;
+}
+
+.custom-file {
+  margin-bottom: 20px;
+  margin-left: 41%;
+}
+
+/* Profile Btn */
+#profileBtn {
+  color: cyan;
+  background-color: rgb(228, 149, 32);
+  margin-left: 45%;
+}
+
+.form-row {
+  padding: 50px;
+}
+
+/* ================================= PROFILE UPDATE ====================================== */

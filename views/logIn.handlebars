@@ -1,27 +1,20 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Login with Register Modal</title>
-
-    <!-- Bootstrap Styles (copied from documentation) -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Doppelganger Main Stylesheet -->
-    <link href="../styles/styles.css" rel="stylesheet">
-</head>
-
 <body>
-    <!-- Doppelganger Navbar (copied from index.html) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <a class="navbar-brand">Doppelganger</a>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                <a class="navbar-brand">Doppelganger</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/profile">Profile</a>
+                    <a class="nav-item nav-link" href="/logIn">Log Out</a>
+                  </div>
+                </div>
+              </nav>
 
      <!-- Register Modal -->
-     <div id="registerModal" class="modal">
+     <div id="registerModal">
             <!-- Register Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -29,7 +22,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="login">
+                    <form class="signup">
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email-input">
@@ -77,18 +70,3 @@
         </div>
     </div>
     </div>
-
-   
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    <!-- Doppelganger Specific JavaScript -->
-    <script src="../js/logIn.js"></script>
-
-</body>
-
-</html>
