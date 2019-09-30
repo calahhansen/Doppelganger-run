@@ -43,8 +43,13 @@ module.exports = function(app) {
 
 // //==========================USER ACCOUNT API ROUTES====================(CALAH set-up PLEASE review!!!)
 
+<<<<<<< HEAD
+// Requiring models and passport
+const db2 = require("../models");
+=======
 // // Requiring models and passport
 // const db2 = require("../models");
+>>>>>>> 786aee329aa1f8641f6211bd1ec083982929cf40
 // const passport = require("../config/passport");
 
 // module.exports = function(app) {
