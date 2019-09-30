@@ -45,7 +45,7 @@ module.exports = function(app) {
 
 // Requiring models and passport
 const db2 = require("../models");
-const passport = require("../config/passport");
+// const passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
