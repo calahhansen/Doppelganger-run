@@ -6,6 +6,7 @@
 
 body {
   background-color: darkgreen;
+  color: whitesmoke;
 }
 
 /* ========================== Container Log-in Main Section ===================================*/
@@ -35,12 +36,13 @@ body {
 .modal-header {
   padding: 2px 16px;
   background-color: #5cb85c;
-  color: white;
+  color: whitesmoke;
 }
 
 /* Modal Body */
 .modal-body {
   padding: 2px 16px;
+  color: black;
 }
 
 /* Modal Footer */
@@ -111,8 +113,8 @@ body {
   margin-left: 41%;
 }
 
-/* Submit Btn */
-.btn {
+/* Profile Btn */
+#profileBtn {
   color: cyan;
   background-color: rgb(228, 149, 32);
   margin-left: 45%;
