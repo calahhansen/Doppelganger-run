@@ -6,7 +6,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="profile.html">Profile</a>
+                    <a class="nav-item nav-link" href="profile">Profile</a>
                     <a class="nav-item nav-link" href="#">Log Out</a>
                   </div>
                 </div>
@@ -16,8 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h2>Submit a Task!</h2>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Title</label>
@@ -36,14 +35,14 @@
     <option value="Indoor Task">Indoor Task</option>
     <option value="Outdoor Task">Outdoor Task</option>
     <option value="Errand Run">Errand Run</option>
-    <option value="Sell Item<">Sell Item</option>
+    <option value="Sell Item">Sell Item</option>
   </select>
   <br></br>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
 
 
-        <h3>Examples:</h3>
+        <h3>Tasks:</h3>
         <ul id="example-list" class="list-group">
           {{#each tasks}}
           <li data-id="{{this.id}}" class="list-group-item">

@@ -95,7 +95,7 @@ const refreshExamples = function() {
     });
 
     exampleListEl.innerHTML = "";
-    exampleListEl.append(...exampleEls);
+    location.reload();
   });
 };
 
