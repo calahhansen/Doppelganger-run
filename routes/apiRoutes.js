@@ -1,4 +1,5 @@
 var db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all examples
@@ -13,6 +14,23 @@ module.exports = function(app) {
     db.Task.create(req.body).then(function(dbTask) {
       res.json(dbTask);
     });
+  });
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  });
+
+  app.post("/api/signup", function(req, res) {
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+      });
   });
 
   // Delete an Task by id
