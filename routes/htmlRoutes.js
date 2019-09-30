@@ -1,12 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load logIn page
+  
+//Home
   app.get("/", function(req, res) {
-    res.render("index");
-  });
-
-  app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
