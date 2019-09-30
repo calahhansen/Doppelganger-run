@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load logIn page
   app.get("/", function(req, res) {
-    res.render("logIn");
+    res.render("index");
   });
 
   app.get("/home", function(req, res) {
