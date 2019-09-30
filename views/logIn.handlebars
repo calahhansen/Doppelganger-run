@@ -1,0 +1,72 @@
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+                <a class="navbar-brand">Doppelganger</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/profile">Profile</a>
+                    <a class="nav-item nav-link" href="/logIn">Log Out</a>
+                  </div>
+                </div>
+              </nav>
+
+     <!-- Register Modal -->
+     <div id="registerModal">
+            <!-- Register Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Registration Form</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="signup">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email-input">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password-input">
+                        </div>
+                        <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Error:</span> <span class="msg"></span>
+                        </div>
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+    
+        </div>
+        </div>
+
+    <!-- Log In Main Section -->
+    <div class="container">
+        <div class="login">
+            <h2>Login</h2>
+            <form class="login">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email-input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password-input">
+                </div>
+                <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                      </div>
+                <br>
+                <button type="submit" class="btn btn-success btn-md">Login</button>
+
+                <!-- Trigger the Register modal with a button -->
+                <button type="button" id="registerBtn" class="btn btn-success btn-md">Register</button>
+                </form>
+        </div>
+    </div>
+    </div>

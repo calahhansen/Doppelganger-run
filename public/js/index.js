@@ -45,7 +45,6 @@ $.getJSON("http://gd.geobytes.com/GetCityDetails?callback=?", function(data) {
 // Get references to page elements
 const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
-const exampleCreatorEl = document.getElementById("example-creator");
 const exampleCategoryEl = document.getElementById("example-category");
 const submitBtnEl = document.getElementById("submit");
 const exampleListEl = document.getElementById("example-list");
@@ -107,7 +106,6 @@ const handleFormSubmit = function(event) {
   const example = {
     text: exampleTextEl.value.trim(),
     description: exampleDescriptionEl.value.trim(),
-    creator: exampleCreatorEl.value.trim(),
     category: exampleCategoryEl.value.trim(),
     city: exampleCityEl
   };
@@ -116,7 +114,6 @@ const handleFormSubmit = function(event) {
     !(
       example.text &&
       example.description &&
-      example.creator &&
       example.category
     )
   ) {
@@ -130,7 +127,6 @@ const handleFormSubmit = function(event) {
 
   exampleTextEl.value = "";
   exampleDescriptionEl.value = "";
-  exampleCreatorEl.value = "";
   exampleCategoryEl.value = "";
   exampleCityEl.value = "";
 };
