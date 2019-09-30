@@ -1,12 +1,16 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Load logIn page
   app.get("/", function(req, res) {
-    db.Task.findAll({}).then(function(doppeldb) {
+    res.render("logIn");
+  });
+
+  app.get("/home", function(req, res) {
+    db.Task.findAll({}).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
-        tasks: doppeldb
+        tasks: dbTasks
       });
     });
   });
