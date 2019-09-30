@@ -3,12 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Task.findAll({}).then(function(dbTasks) {
-      res.render("index", {
-        msg: "Welcome!",
-        tasks: dbTasks
-      });
-    });
+    res.render("index");
   });
 
   // Load Task page and pass in an Task by id
