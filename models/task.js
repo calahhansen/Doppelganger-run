@@ -7,13 +7,13 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Task.associate = function(models) {
-    models.Task.hasOne(models.User, {
+    models.Task.belongsTo(models.User, {
       as: "creator"
     });
   };
 
   Task.associate = function(models) {
-    models.Task.hasOne(models.User, {
+    models.Task.belongsTo(models.User, {
       as: "assignee"
     });
   };
