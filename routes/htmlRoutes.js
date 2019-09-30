@@ -1,8 +1,12 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Load logIn page
   app.get("/", function(req, res) {
+    res.render("logIn");
+  });
+
+  app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
@@ -13,9 +17,9 @@ module.exports = function(app) {
 
   // Load Task page and pass in an Task by id
   app.get("/tasks/:id", function(req, res) {
-    db.Task.findOne({ where: { id: req.params.id } }).then(function(dbTask) {
+    db.Task.findOne({ where: { id: req.params.id } }).then(function(doppeldb) {
       res.render("task", {
-        task: dbTask
+        task: doppeldb
       });
     });
   });
