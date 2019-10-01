@@ -28,10 +28,11 @@ $("#submitBtn").on("click", function() {
     .trim();
 
   $.ajax({
-    url: "/api/profile",
+    url: "/api/signup",
     method: "POST",
     data: update
   }).then(function(response) {
     window.location.reload();
   });
+  console.log(update);
 });
