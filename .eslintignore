@@ -1,3 +1,5 @@
 models/index.js
 node_modules
 package.json
+public/html/index.html
+public/styles/styles.css
