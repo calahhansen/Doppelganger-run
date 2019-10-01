@@ -127,12 +127,18 @@ body {
 
 /* skills and type of skills looking for */
 .form-row3 {
+  color: #5cb85c;
   padding: 5px;
 }
 /* skills and type of skills looking for */
 .form-control1 {
   display: block;
   width: 380%;
+}
+
+/* address  */
+.form-group {
+  color: 5cb85c;
 }
 
 /* ================================= PROFILE UPDATE ====================================== */
