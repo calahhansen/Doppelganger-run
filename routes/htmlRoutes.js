@@ -4,10 +4,12 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
+
     // res.render("logIn");
     res.render("profileupdate");
   });
   // =============^^^ profile updat===========
+
   //Home
   app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
