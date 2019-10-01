@@ -1,7 +1,10 @@
+/* ================================== Main Home Page ========================================== */
+
 .list-group-item {
   line-height: 2.5;
 }
 
+<<<<<<< HEAD
 
 .modalOne {
   width: 100%;
@@ -31,3 +34,126 @@ input {
   margin: 15px auto;
 
 }
+=======
+body {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+
+/* ========================== Container Log-in Main Section ===================================*/
+.container {
+  border-style: groove;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: whitesmoke;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  color: black;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+#registerBtn {
+  float: right;
+}
+
+/* ================================= CREATE PROFILE ====================================== */
+
+#mainContainer {
+  background-color: #fefefe;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  padding-right: 50px;
+  border: none;
+}
+
+#profileImage {
+  margin-bottom: 20px;
+  margin-left: 40%;
+}
+
+/* link to photo */
+.active {
+  color: rgb(95, 173, 241);
+}
+
+#emailInput {
+  margin-right: 200px;
+}
+
+.custom-file {
+  margin-bottom: 20px;
+  margin-left: 41%;
+}
+
+/* Profile Btn */
+#profileBtn {
+  color: cyan;
+  background-color: rgb(228, 149, 32);
+  margin-left: 45%;
+}
+
+.form-row {
+  padding: 50px;
+}
+
+/* ================================= PROFILE UPDATE ====================================== */
+>>>>>>> df2980dc7d73744503124e4f693b7b13c2c64286
