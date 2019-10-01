@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
    //Home catagory outside
-   app.get("/home/outside", function(req, res) {
+  app.get("/home/outside", function(req, res) {
     db.Task.findAll({ where: { category: "Outdoor Task" } }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
