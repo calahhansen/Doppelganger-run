@@ -40,6 +40,7 @@
 
         <h3>Tasks:</h3>
         <ul id="example-list" class="list-group">
+
           {{#each tasks}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="tasks/{{this.id}}">{{this.text}}</a>

@@ -9,6 +9,15 @@ module.exports = function(app) {
     });
   });
 
+  // Create a new Profile===kong====
+  app.post("/api/profile", function(req, res) {
+    console.log("dbProfile: ", req.body);
+
+    db.Profile.create(req.body).then(function(dbProfile) {
+      res.json(dbProfile);
+    });
+  });
+  // ===========================kong====
   // Create a new Task
   app.post("/api/tasks", function(req, res) {
     db.Task.create(req.body).then(function(dbTask) {
@@ -43,13 +52,10 @@ module.exports = function(app) {
 
 // //==========================USER ACCOUNT API ROUTES====================(CALAH set-up PLEASE review!!!)
 
-<<<<<<< HEAD
-// Requiring models and passport
-const db2 = require("../models");
-=======
+
 // // Requiring models and passport
 // const db2 = require("../models");
->>>>>>> 786aee329aa1f8641f6211bd1ec083982929cf40
+
 // const passport = require("../config/passport");
 
 // module.exports = function(app) {
