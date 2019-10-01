@@ -2,14 +2,6 @@
   line-height: 2.5;
 }
 
-.modalOneContent {
-  width: 500px;
-  height: 300px;
-  background-color: white;
-  text-align: center;
-  border-radius: 4px;
-  padding: 20px;
-}
 
 .modalOne {
   width: 100%;
@@ -21,4 +13,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modalOneContent {
+  width: 500px;
+  height: 300px;
+  background-color: green;
+  text-align: center;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+
+input {
+  width: 50%;
+  display: block;
+  margin: 15px auto;
+
 }
