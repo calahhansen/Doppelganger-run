@@ -19,9 +19,22 @@ module.exports = function(app) {
   });
   // ===========================kong====
   // Create a new Task
+
+  //when we create a task, we want to associate the UserId with the user that created it
+  //we will be given a username from req.user.username when we have sessions properly implemented
+  //we need to find the User primary key User.id that corresponds to the username from req.user.username
+  //we'll apply this to a new field called UserId in req.body
+  //we'll use req.body to create a new task in the Task model
   app.post("/api/tasks", function(req, res) {
-    db.Task.create(req.body).then(function(dbTask) {
-      res.json(dbTask);
+    db.User.findOne({
+      where: {
+        name: req.user.username //could need to be modified according to when the info inside of a session actually is
+      }
+    }).then(function(user) {
+      req.body.UserId = user.id;
+      db.Task.create(req.body).then(function(dbTask) {
+        res.json(dbTask);
+      });
     });
   });
 
