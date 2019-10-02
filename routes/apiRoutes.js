@@ -30,8 +30,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/signup", function(req, res) {
-    db.User.create(req.body
-    )
+    db.User.create(req.body)
       .then(function() {
         res.redirect(307, "/api/login");
       })
@@ -49,7 +48,6 @@ module.exports = function(app) {
 };
 
 // //==========================USER ACCOUNT API ROUTES====================(CALAH set-up PLEASE review!!!)
-
 
 // // Requiring models and passport
 // const db2 = require("../models");
