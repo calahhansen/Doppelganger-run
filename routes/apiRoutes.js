@@ -18,9 +18,10 @@ module.exports = function(app) {
   //we'll apply this to a new field called UserId in req.body
   //we'll use req.body to create a new task in the Task model
   app.post("/api/tasks", function(req, res) {
+    console.log(req.user);
     db.User.findOne({
       where: {
-        name: req.user.username //could need to be modified according to when the info inside of a session actually is
+        email: req.user.email //could need to be modified according to when the info inside of a session actually is
       }
     }).then(function(user) {
       req.body.UserId = user.id;
@@ -36,7 +37,7 @@ module.exports = function(app) {
   app.put("api/tasks/:id", function(req, res) {
     db.User.findOne({
       where: {
-        name: req.user.username //could need to be modified according to when the info inside of a session actually is
+        email: req.user.email //could need to be modified according to when the info inside of a session actually is
       }
     }).then(function(user) {
       db.Task.update(
