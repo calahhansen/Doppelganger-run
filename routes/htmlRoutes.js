@@ -4,19 +4,60 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
-<<<<<<< HEAD
     res.render("logIn");
   });
 
-=======
-    // res.render("logIn");
-    res.render("profileupdate");
-  });
-  // =============^^^ profile updat===========
->>>>>>> c4f2a86c19b06057a3f767a55cf33f95c21017b2
   //Home
   app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory outside
+  app.get("/home/outside", function(req, res) {
+    db.Task.findAll({ where: { category: "Outdoor Task" } }).then(function(
+      dbTasks
+    ) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory inside
+  app.get("/home/inside", function(req, res) {
+    db.Task.findAll({ where: { category: "Indoor Task" } }).then(function(
+      dbTasks
+    ) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory errand
+  app.get("/home/errand", function(req, res) {
+    db.Task.findAll({ where: { category: "Errand Run" } }).then(function(
+      dbTasks
+    ) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory outside
+  app.get("/home/sale", function(req, res) {
+    db.Task.findAll({ where: { category: "Sell Item" } }).then(function(
+      dbTasks
+    ) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
