@@ -27,9 +27,12 @@ module.exports = function(app) {
 
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
+    // console.log(req.user);
   });
 
   app.post("/api/signup", function(req, res) {
+    console.log("api/signup");
+    // console.log(db.User);
     db.User.create(req.body)
       .then(function() {
         res.redirect(307, "/api/login");
