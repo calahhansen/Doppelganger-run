@@ -70,7 +70,11 @@ const API = {
       },
       method: "PUT",
       body: JSON.stringify(example)
-    }).then(res => res.json());
+    }).then(function(res) {
+      console.log(res);
+
+      event.preventDefault();
+    });
   },
 
   saveExample: function(example) {
@@ -80,12 +84,13 @@ const API = {
       },
       method: "POST",
       body: JSON.stringify(example)
-    }).then(res => res.json())
-    .then(function(task){
-      console.log(task);
-      taskIds.push(task.id);
-      console.log(taskIds);
-    });
+    })
+      .then(res => res.json())
+      .then(function(task) {
+        console.log(task);
+        taskIds.push(task.id);
+        console.log(taskIds);
+      });
   },
 
   getExamples: function() {
@@ -165,15 +170,15 @@ const handleDeleteBtnClick = function(event) {
   });
 };
 
-
-
-
 const handleAcceptBtnClick = function(event) {
-  API.updateExample().then(function() {
+  const idObj = {
+    id: this.id
+  };
+  console.log(idObj);
+  API.updateExample(idObj).then(function() {
     refreshExamples();
   });
-}
-
+};
 
 // Add event listeners to the submit and delete buttons
 submitBtnEl.addEventListener("click", handleFormSubmit);
