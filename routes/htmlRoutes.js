@@ -8,7 +8,7 @@ module.exports = function(app) {
   });
 
   //Home
-  app.get("/home", function(req, res) {
+  app.get("/home", isAuthenticated, function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
@@ -66,7 +66,7 @@ module.exports = function(app) {
   });
 
   // Load Task page and pass in an Task by id
-  app.get("/tasks/:id", function(req, res) {
+  app.get("/tasks/:id", isAuthenticated, function(req, res) {
     db.Task.findOne({ where: { id: req.params.id } }).then(function(doppeldb) {
       res.render("task", {
         task: doppeldb
@@ -75,7 +75,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("/profile", function(req, res) {
+  app.get("/profile", isAuthenticated, function(req, res) {
     res.render("profile");
   });
 
@@ -85,7 +85,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", isAuthenticated, function(req, res) {
     res.render("404");
   });
 };
