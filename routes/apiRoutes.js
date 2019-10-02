@@ -33,11 +33,32 @@ module.exports = function(app) {
   //when we have a user select a task in the task selection view, an association will be made between the task and the assignee
   //the assigneeId of the task in question must be assigned the primary key of the user in question
   //username
-  app.put("api/tasks", function(req, res) {});
+  app.put("api/tasks/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        name: req.user.username //could need to be modified according to when the info inside of a session actually is
+      }
+    }).then(function(user) {
+      db.Task.update(
+        {
+          assigneeId: user.id
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      );
+    });
+  });
 
   // Delete an Task by id
   app.delete("/api/tasks/:id", function(req, res) {
-    db.Task.destroy({ where: { id: req.params.id } }).then(function(dbTask) {
+    db.Task.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbTask) {
       res.json(dbTask);
     });
   });
