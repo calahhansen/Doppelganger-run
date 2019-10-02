@@ -1,6 +1,16 @@
 //let city;
 let exampleCityEl;
 
+document.getElementById('modalbtn').addEventListener('click', function() {
+  document.querySelector('.modalOne').style.display = 'flex';
+  
+});
+
+document.querySelector('.closebtn').addEventListener('click', function() {
+document.querySelector('.modalOne').style.display = 'none';
+
+});
+
 function getScript(url, success) {
   var script = document.createElement("script");
   script.src = url;
@@ -146,3 +156,4 @@ submitBtnEl.addEventListener("click", handleFormSubmit);
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });
+

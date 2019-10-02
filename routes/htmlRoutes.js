@@ -1,10 +1,19 @@
 var db = require("../models");
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
+<<<<<<< HEAD
     res.render("logIn");
   });
 
+=======
+    // res.render("logIn");
+    res.render("profileupdate");
+  });
+  // =============^^^ profile updat===========
+>>>>>>> c4f2a86c19b06057a3f767a55cf33f95c21017b2
   //Home
   app.get("/home", function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {

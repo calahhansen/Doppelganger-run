@@ -1,13 +1,14 @@
 models/index.js
 node_modules
 package.json
-<<<<<<< HEAD
+
 public/html/index.html
 public/styles/styles.css
-=======
 config/passport.js
 public/js/index.js
 package-lock.json
-public/styles/styles.css
+
+
+
 public/js/login.js
->>>>>>> df2980dc7d73744503124e4f693b7b13c2c64286
+
