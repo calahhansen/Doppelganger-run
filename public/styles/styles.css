@@ -4,8 +4,6 @@
   line-height: 2.5;
 }
 
-
-
 .modalOne {
   width: 100%;
   height: 100%;
@@ -27,17 +25,23 @@
   padding: 20px;
 }
 
-
 input {
   width: 50%;
-  display: block;
+  display: flex;
   margin: 15px auto;
+}
 
+.closebtn {
+  position: absolute;
+  right: 0;
+  left: 450;
+  top: 220;
+  font-size: 32px;
+  cursor: pointer;
 }
 
 body {
-  background-color: darkgreen;
-  color: whitesmoke;
+  background-color: lightgreen;
 }
 
 /* ========================== Container Log-in Main Section ===================================*/
@@ -135,21 +139,13 @@ body {
   color: rgb(95, 173, 241);
 }
 
-
-.validate {
-  display: block;
-  width: 50%;
-}
-
 #emailInput {
   margin-right: 200px;
 }
 
 .custom-file {
   margin-bottom: 20px;
-
-  margin-left: 30%;
-
+  margin-left: 41%;
 }
 
 /* Profile Btn */
@@ -180,4 +176,3 @@ body {
 .table {
   margin-top: 10px;
 }
-

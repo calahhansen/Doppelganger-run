@@ -1,6 +1,14 @@
 //let city;
 let exampleCityEl;
 
+document.getElementById("modalbtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "flex";
+});
+
+document.querySelector(".closebtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "none";
+});
+
 function getScript(url, success) {
   var script = document.createElement("script");
   script.src = url;
@@ -110,13 +118,7 @@ const handleFormSubmit = function(event) {
     city: exampleCityEl
   };
 
-  if (
-    !(
-      example.text &&
-      example.description &&
-      example.category
-    )
-  ) {
+  if (!(example.text && example.description && example.category)) {
     alert("You must enter aa title, description, creator, and category!");
     return;
   }
