@@ -9,14 +9,6 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new Profile===kong====
-  app.post("/api/profile", function(req, res) {
-    console.log("dbProfile: ", req.body);
-
-    db.Profile.create(req.body).then(function(dbProfile) {
-      res.json(dbProfile);
-    });
-  });
   // ===========================kong====
   // Create a new Task
 
@@ -38,6 +30,22 @@ module.exports = function(app) {
     });
   });
 
+  // Delete an Task by id
+  app.delete("/api/tasks/:id", function(req, res) {
+    db.Task.destroy({ where: { id: req.params.id } }).then(function(dbTask) {
+      res.json(dbTask);
+    });
+  });
+
+  // Create a new Profile===kong====
+  app.post("/api/profile", function(req, res) {
+    console.log("dbProfile: ", req.body);
+
+    db.Profile.create(req.body).then(function(dbProfile) {
+      res.json(dbProfile);
+    });
+  });
+
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
@@ -50,13 +58,6 @@ module.exports = function(app) {
       .catch(function(err) {
         res.status(401).json(err);
       });
-  });
-
-  // Delete an Task by id
-  app.delete("/api/tasks/:id", function(req, res) {
-    db.Task.destroy({ where: { id: req.params.id } }).then(function(dbTask) {
-      res.json(dbTask);
-    });
   });
 };
 
