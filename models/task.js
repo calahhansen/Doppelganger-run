@@ -6,17 +6,17 @@ module.exports = function(sequelize, DataTypes) {
     city: DataTypes.TEXT
   });
 
-  // Task.associate = function(models) {
-  //   models.Task.belongsTo(models.User, {
-  //     as: "creator"
-  //   });
-  // };
+  Task.associate = function(models) {
+    models.Task.belongsTo(models.User, {
+      as: "creator"
+    });
+  };
 
-  // Task.associate = function(models) {
-  //   models.Task.belongsTo(models.User, {
-  //     as: "assignee"
-  //   });
-  // };
+  Task.associate = function(models) {
+    models.Task.belongsTo(models.User, {
+      as: "assignee"
+    });
+  };
 
   return Task;
 };
