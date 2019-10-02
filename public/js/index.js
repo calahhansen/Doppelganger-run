@@ -1,15 +1,15 @@
 //let city;
 let exampleCityEl;
 
-document.getElementById('modalbtn').addEventListener('click', function() {
-  document.querySelector('.modalOne').style.display = 'flex';
-  
-});
+// document.getElementById('modalbtn').addEventListener('click', function() {
+//   document.querySelector('.modalOne').style.display = 'flex';
 
-document.querySelector('.closebtn').addEventListener('click', function() {
-document.querySelector('.modalOne').style.display = 'none';
+// });
 
-});
+// document.querySelector('.closebtn').addEventListener('click', function() {
+// document.querySelector('.modalOne').style.display = 'none';
+
+// });
 
 function getScript(url, success) {
   var script = document.createElement("script");
@@ -112,6 +112,7 @@ const refreshExamples = function() {
 // Save the new example to the db and refresh the list
 const handleFormSubmit = function(event) {
   event.preventDefault();
+  console.log("handleformsubmit");
 
   const example = {
     text: exampleTextEl.value.trim(),
@@ -119,14 +120,9 @@ const handleFormSubmit = function(event) {
     category: exampleCategoryEl.value.trim(),
     city: exampleCityEl
   };
-
-  if (
-    !(
-      example.text &&
-      example.description &&
-      example.category
-    )
-  ) {
+  console.log("posting this stuff");
+  console.log(example);
+  if (!(example.text && example.description && example.category)) {
     alert("You must enter aa title, description, creator, and category!");
     return;
   }
@@ -156,4 +152,3 @@ submitBtnEl.addEventListener("click", handleFormSubmit);
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });
-
