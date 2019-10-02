@@ -35,7 +35,8 @@ $(document).ready(function() {
   const emailCreateInput = $("input#email-create-input");
   const passwordCreateInput = $("input#password-create-input");
 
-  signUpForm.on("submit", function(event) {
+  registerForm.on("submit", function(event) {
+    console.log("registerform");
     event.preventDefault();
     var userData = {
       email: emailCreateInput.val().trim(),
@@ -94,5 +95,9 @@ $(document).ready(function() {
       .catch(function(err) {
         console.log(err);
       });
+  }
+
+  function handleLoginErr(err) {
+    if (err) throw err;
   }
 });
