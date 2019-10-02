@@ -4,8 +4,6 @@
   line-height: 2.5;
 }
 
-
-
 .modalOne {
   width: 100%;
   height: 100%;
@@ -27,12 +25,19 @@
   padding: 20px;
 }
 
-
 input {
   width: 50%;
   display: block;
   margin: 15px auto;
+}
 
+.closebtn {
+  position: absolute;
+  right: 0;
+  left: 450;
+  top: 220;
+  font-size: 32px;
+  cursor: pointer;
 }
 
 body {
@@ -144,7 +149,6 @@ body {
 .custom-file {
   margin-bottom: 50px;
   color: rgb(255, 255, 255);
-
 }
 
 /* Profile Btn */
@@ -167,11 +171,10 @@ body {
 
 /* address  */
 .form-group {
-  color:#5cb85c;
-
+  color: #5cb85c;
+}
 /* ================================= PROFILE UPDATE ====================================== */
 
 /* .table {
   margin-top: 10px;
 } */
-
