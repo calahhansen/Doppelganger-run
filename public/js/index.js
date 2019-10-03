@@ -184,7 +184,7 @@ document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });
 
-document.getElementById("modalbtn").addEventListener("click", function() {
+document.getElementById("add-task").addEventListener("click", function() {
   document.querySelector(".modalOne").style.display = "flex";
 });
 
