@@ -1,5 +1,9 @@
 # Doppelganger-run
 
+[Heroku Link](https://doppleganer-run.herokuapp.com/)
+Email: calah.hansen@gmail.com
+Password: 123
+
 ## Overview:
 Running short on time? Need an extra hand? Need to be in two places at once? With our app, you don't need to be a quantum physicist, ambidextrous or a time traveler.  Instead, you can use this app to connect with people in your geographic area that are willing to help! Login and set-up tasks or errands to be completed. View people near you that are skilled and available to take-on the task.  The task status will change based on user input (New, Accepted, Assigned, Completed, Overdue, Deleted)
 
