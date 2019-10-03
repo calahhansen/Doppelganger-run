@@ -1,48 +1,89 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-                <a class="navbar-brand">Doppelganger</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="/profile">Profile</a>
-                    <a class="nav-item nav-link" href="/logout">Log Out</a>
-                  </div>
-                </div>
-              </nav>
+<body>
 
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h2>Submit a Task!</h2>
+  <!-- Navagator with links -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand">Doppelganger</a>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="/logIn">Log Out</a>
+      </li>
+    </ul>
+  </nav>
+  {{!-- POST a JOB MODAL --}}
+  <div id="home">
+    <div class="modalOne">
+      <div class="modalOneContent">
+        <div class="closebtn">x</div>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
-            <label for="example-text">Title</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Title">
+            <label for="Title">Job Title</label>
+            <input type="text" placeholder="Job Title">
           </div>
           <div class="form-group">
             <label for="example-description">Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Description"></textarea>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description"
+              placeholder="Enter Description"></textarea>
           </div>
           <label for="example-category">Category</label>
-<select class="form-control" id="example-category" aria-describedby="example-category" name="cars">
-    <option value="Indoor Task">Indoor Task</option>
-    <option value="Outdoor Task">Outdoor Task</option>
-    <option value="Errand Run">Errand Run</option>
-    <option value="Sell Item">Sell Item</option>
-  </select>
-  <br></br>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <select class="form-control" id="example-category" aria-describedby="example-category" name="cars">
+            <option value="Indoor Task">Indoor Task</option>
+            <option value="Outdoor Task">Outdoor Task</option>
+            <option value="Errand Run">Errand Run</option>
+            <option value="Sell Item">Sell Item</option>
+          </select>
+          <br></br>
+          <button id="modalbtn" class="btn btn-success float-right">Submit</button>
         </form>
+        <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+          placeholder="Job Description">
+      </div>
+    </div>
+  </div>
 
-<br><br>
-<button onclick="window.location.href='/home/outside'">Search For Outdoors Tasks</button>
-<button onclick="window.location.href='/home/inside'">Search For Indoors Tasks</button>
-<button onclick="window.location.href='/home/errand'">Search For Errand Run</button>
-<button onclick="window.location.href='/home/sale'">Search For Sales</button>
-<br></br>
+  {{!-- SEARCH for various JOBS by category --}}
+  {{!-- <div id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <h2>Submit a Task!</h2>
+          <form class="clearfix mb-4" action="POST">
+            <div class="form-group">
+              <label for="example-text">Title</label>
+              <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+                placeholder="Enter Title">
+            </div>
+            <div class="form-group">
+              <label for="example-description">Description</label>
+              <textarea class="form-control" id="example-description" aria-describedby="example-description"
+                placeholder="Enter Description"></textarea>
+            </div>
+            <label for="example-category">Category</label>
+            <select class="form-control" id="example-category" aria-describedby="example-category" name="cars">
+              <option value="Indoor Task">Indoor Task</option>
+              <option value="Outdoor Task">Outdoor Task</option>
+              <option value="Errand Run">Errand Run</option>
+              <option value="Sell Item">Sell Item</option>
+            </select>
+            <br></br>
+            <button id="submit" class="btn btn-primary float-right">Submit</button>
+          </form> --}}
+  <div class="w3-container">
+    <div class="w3-display-container w3-green" style="height:500px;">
+      <div class="w3-display-middle">
+        <br><br>
+        <h3>Search for...</h3>
+        <br><br>
+        <button onclick="window.location.href='/home/outside'">Outdoors Tasks</button>
+        <button onclick="window.location.href='/home/inside'">Indoors Tasks</button>
+        <button onclick="window.location.href='/home/errand'">Errand Run</button>
+        <button onclick="window.location.href='/home/sale'">Sales</button>
+        <br></br>
 
         <h3>Tasks:</h3>
         <ul id="example-list" class="list-group">
@@ -65,8 +106,7 @@
         </ul>
       </div>
     </div>
-  </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/index.js"></script>
+</body>
