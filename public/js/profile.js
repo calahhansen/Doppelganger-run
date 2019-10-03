@@ -5,12 +5,12 @@ const modal = document.getElementById("updateProfileModal");
 const btn = document.getElementById("updateBtn");
 
 // Get the <span> element that closes the modal
-// const span = document.querySelector(".close");
+const span = document.querySelector(".close");
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-};
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// };
 
 // When the user clicks on <span> (x), close the modal
 // span.onclick = function() {

@@ -20,9 +20,10 @@
   <div id="home">
     <div class="modalOne " style="display: none">
       <div class="modalOneContent ">
-        <div class="closebtn">x</div>
+        <div class="btn btn-success closebtn">x</div>
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
+            <br></br>
             <label for="Title">Job Title</label>
             <input id="example-text" type="text" placeholder="Job Title">
           </div>
@@ -41,6 +42,7 @@
         </div>
         <button id="submit" class="btn btn-success float-right">Submit</button>
       </form>
+      <br></br>
       <div class="modal-footer">
       </div>
     </div>
@@ -94,13 +96,13 @@
 
         {{#each tasks}}
         <li data-id="{{this.id}}" class="list-group-item">
-          <a>{{this.text}}</a>
+          <a class="tasktexter" href="tasks/{{this.id}}">{{this.text}}</a>
           <br>
-          <a>{{this.description}}</a>
+          <a class="tasktexter" href="tasks/{{this.id}}">{{this.description}}</a>
           <br>
-          <a>{{this.category}}</a>
+          <a class="tasktexter" href="tasks/{{this.id}}">{{this.category}}</a>
           <br>
-          <a>{{this.city}}</a>
+          <a class="tasktexter" href="tasks/{{this.id}}">{{this.city}}</a>
           <br></br>
           <button id="{{this.id}}" class="accept btn btn-success">Accept</button>
           <button class="btn btn-danger float-right delete">Delete</button>
