@@ -18,19 +18,19 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/assignedTasks", isAuthenticated, function(req, res) {
-    db.User.findOne({
-      email: req.user.email
-    }).then(function name(user) {
-      db.Task.findAll({
-        assigneeId: user.id
-      }).then(function(tasks) {
-        res.json = {
-          tasks
-        };
-      });
-    });
-  });
+  // app.get("/api/assignedTasks", isAuthenticated, function(req, res) {
+  //   db.User.findOne({
+  //     email: req.user.email
+  //   }).then(function name(user) {
+  //     db.Task.findAll({
+  //       assigneeId: user.id
+  //     }).then(function(tasks) {
+  //       res.json = {
+  //         tasks
+  //       };
+  //     });
+  //   });
+  // });
 
   // ===========================kong====
   // Create a new Task
@@ -54,19 +54,19 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/createdTasks", isAuthenticated, function(req, res) {
-    db.User.findOne({
-      email: req.user.email
-    }).then(function name(user) {
-      db.Task.findAll({
-        userId: user.id
-      }).then(function(tasks) {
-        res.json = {
-          tasks
-        };
-      });
-    });
-  });
+  // app.get("/api/createdTasks", isAuthenticated, function(req, res) {
+  //   db.User.findOne({
+  //     email: req.user.email
+  //   }).then(function name(user) {
+  //     db.Task.findAll({
+  //       userId: user.id
+  //     }).then(function(tasks) {
+  //       res.json = {
+  //         tasks
+  //       };
+  //     });
+  //   });
+  // });
 
   //when we have a user select a task in the task selection view, an association will be made between the task and the assignee
   //the assigneeId of the task in question must be assigned the primary key of the user in question

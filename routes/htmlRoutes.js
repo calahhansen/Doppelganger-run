@@ -98,9 +98,12 @@ module.exports = function(app) {
 
   // Render 404 page for any unmatched routes
   app.get("/profile", isAuthenticated, function(req, res) {
-    db.User.findOne({
+    console.log(req.user)
+    db.User.findOne({where: {
       email: req.user.email
-    }).then(function(user){
+    }}).then(function(user){
+      console.log(user);
+      console.log("should be a user returned above");
       db.Task.findAll({
         where: {
           assigneeId: user.id
@@ -115,10 +118,11 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("/profile/creations", isAuthenticated, function(req, res) {
-    db.User.findOne({
+  app.get("/creations", isAuthenticated, function(req, res) {
+    console.log(req.user)
+    db.User.findOne({where: {
       email: req.user.email
-    }).then(function(user){
+    }}).then(function(user){
       db.Task.findAll({
         where: {
           userId: user.id
