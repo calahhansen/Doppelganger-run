@@ -2,7 +2,7 @@
 var bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("profiles", {
+  var User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
     email: {
       type: DataTypes.STRING,
@@ -21,13 +21,16 @@ module.exports = function(sequelize, DataTypes) {
 
   // User.associate = function(models) {
   //   models.User.hasMany(models.Task, {
-  //     as: "creations"
+  //     as: "creations",
+  //     foreignKey: 'id'
+
   //   });
   // };
 
   // User.associate = function(models) {
   //   models.User.hasMany(models.Task, {
   //     as: "assignments"
+  //     foreignKey: 'id'
   //   });
   // };
 
