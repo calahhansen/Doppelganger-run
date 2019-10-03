@@ -5,7 +5,7 @@ const modal = document.getElementById("registerModal");
 const btn = document.getElementById("registerBtn");
 
 // Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+const span = document.querySelector(".close");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
