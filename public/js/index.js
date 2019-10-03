@@ -70,8 +70,6 @@ const API = {
       body: JSON.stringify(example)
     }).then(function(res) {
       console.log(res);
-
-      event.preventDefault();
     });
   },
 
@@ -120,12 +118,13 @@ const refreshExamples = function() {
       buttonEl.addEventListener("click", handleDeleteBtnClick);
 
       liEl.append(buttonEl);
-
+      location.reload();
       return liEl;
     });
 
     exampleListEl.innerHTML = "";
     location.reload();
+    console.log("test");
   });
 };
 
@@ -169,23 +168,32 @@ const handleDeleteBtnClick = function(event) {
 };
 
 const handleAcceptBtnClick = function(event) {
+  event.preventDefault();
   const idObj = {
     id: this.id
   };
   console.log(idObj);
+  refreshExamples();
   API.updateExample(idObj).then(function() {
-    refreshExamples();
   });
 };
 
+//event listener for accept task button
+document.querySelectorAll(".accept").forEach(btn => {
+  console.log("making a query");
+  btn.addEventListener("click", handleAcceptBtnClick);
+});
+
 // Add event listeners to the submit and delete buttons
 submitBtnEl.addEventListener("click", handleFormSubmit);
+
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });
 
 document.getElementById("add-task").addEventListener("click", function() {
   document.querySelector(".modalOne").style.display = "flex";
+  
 });
 
 document.querySelector(".closebtn").addEventListener("click", function() {

@@ -1,91 +1,69 @@
 <!-- Navagator with links -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
-  <a class="navbar-brand">Doppelganger</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/home">Home</a>
-      <a class="nav-item nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/logIn">Log Out</a>
-    </div>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand">Doppelganger</a>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" href="/logout">Log Out</a>
+      </li>
+    </ul>
+  </nav>
 
 <div id="home">
   <div class="container">
-    <!-- Update Profile Modal -->
-    <div id="updateProfileModal">
-      <!-- Update Profile Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Update Profile Form</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form class="clearfix mb-4" action="POST">
-            <div class="form-group">
-              <label for="name">Link to Photo Image (required for image)</label>
-              <input id="photo" type="text" class="validate"
-                placeholder="Example: https://images.app.goo.gl/8fEd9uGx91SDogkg9">
+      <!-- Update Profile Modal -->
+        {{!-- <div id="updateProfileModal">
+          <!-- Update Profile Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Update Profile Form</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="form-group">
               <label for="name">First name</label>
               <input type="text" id="firstname" class="form-control" aria-describedby="name"
                 placeholder="Enter first name">
             </div>
-            <div class="form-group">
-              <label for="name">Last name</label>
-              <input type="text" id="lastname" class="form-control" aria-describedby="name"
-                placeholder="Enter last name">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputSkill">Let us know your skills</label>
-              <textarea type="text" class="form-control" id="inputSkill" placeholder="Skills"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="inputTask">What type of task are you looking for?</label>
-              <textarea type="text" class="form-control" id="inputTask" placeholder="Tasks"></textarea>
-            </div>
-
-            <button id="submit" class="btn btn-success float-right">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- Trigger the Register modal with a button -->
-    <form>
-      <button type="button" id="updateBtn" class="btn btn-success btn-md">Update Profile</button>
-    </form>
+          </div>
+        </div> --}}
+        <!-- Trigger the Register modal with a button -->
+                <form>
+                <button type="button" id="updateBtn" class="btn btn-success btn-md">Update Profile</button>
+                </form>
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
-        <div class="row">
-          <div class="col-8 offset-2">
-            <div class="card mt-4">
-              <div class="card-body">
-                <h5 class="card-title">My Current Jobs</h5>
-                <p>
-                  <strong>ID</strong>: {{task.id}}</p>
-                <p>
-                  <p>
-                    <strong>Title</strong>: {{task.text}}</p>
-                  <p>
-                    <strong>Description:</strong> {{task.description}}</p>
-                  <p>
-                    <strong>Category:</strong> {{task.category}}</p>
-                  <p>
-                    <strong>Location:</strong> {{task.city}}</p>
+          <div class="row">
+            <div class="col-8 offset-2">
+              <div class="card mt-4">
+                 <a class="nav-item nav-link" href="/profile">assignments</a>
+                 <a class="nav-item nav-link" href="/creations">creations</a>
+                <div class="card-body">
+                  <h5 class="card-title">My Current Jobs</h5>
+                <ul id="example-list" class="list-group">
+                 
+
+          {{#each tasks}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="tasks/{{this.id}}">{{this.text}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.description}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.category}}</a>
+            <br>
+            <a href="tasks/{{this.id}}">{{this.city}}</a>
+            <br></br>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          <br>
+          {{/each}}
+        </ul>
+                </div>
               </div>
             </div>
           </div>
