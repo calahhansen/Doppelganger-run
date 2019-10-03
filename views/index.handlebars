@@ -11,7 +11,7 @@
         <a class="nav-item nav-link" href="/profile">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link" href="/logIn">Log Out</a>
+        <a class="nav-item nav-link" href="/logout">Log Out</a>
       </li>
     </ul>
   </nav>
@@ -91,7 +91,6 @@
         <ul id="example-list" class="list-group">
 
           {{#each tasks}}
-          {{#unless task.assigneeId}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="tasks/{{this.id}}">{{this.text}}</a>
             <br>
@@ -105,7 +104,6 @@
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           <br>
-          {{/unless}}
           {{/each}}
         </ul>
       </div>

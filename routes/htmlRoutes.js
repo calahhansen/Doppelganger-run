@@ -11,9 +11,7 @@ module.exports = function(app) {
   app.get("/home", isAuthenticated, function(req, res) {
     db.Task.findAll({
       where: {
-        assigneeId: {
-          $eq: "1"
-        }
+        assigneeId: null
       }
     }).then(function(dbTasks) {
       res.render("index", {
@@ -41,6 +39,7 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/");
   });
+
 
   //Home catagory inside
   app.get("/home/inside", isAuthenticated, function(req, res) {
@@ -99,8 +98,44 @@ module.exports = function(app) {
 
   // Render 404 page for any unmatched routes
   app.get("/profile", isAuthenticated, function(req, res) {
-    res.render("profile");
+    db.User.findOne({
+      email: req.user.email
+    }).then(function(user){
+      db.Task.findAll({
+        where: {
+          assigneeId: user.id
+        }
+      }).then(function(dbTasks) {
+        res.render("profile", {
+          msg: "Welcome!",
+          tasks: dbTasks
+        });
+      });
+    }) 
   });
+
+  // Render 404 page for any unmatched routes
+  app.get("/profile/creations", isAuthenticated, function(req, res) {
+    db.User.findOne({
+      email: req.user.email
+    }).then(function(user){
+      db.Task.findAll({
+        where: {
+          userId: user.id
+        }
+      }).then(function(dbTasks) {
+        res.render("profile", {
+          msg: "Welcome!",
+          tasks: dbTasks
+        });
+      });
+    }) 
+  });
+
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+   });
 
   // Render 404 page for any unmatched routes
   app.get("/logIn", function(req, res) {

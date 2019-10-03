@@ -118,12 +118,13 @@ const refreshExamples = function() {
       buttonEl.addEventListener("click", handleDeleteBtnClick);
 
       liEl.append(buttonEl);
-
+      location.reload();
       return liEl;
     });
 
     exampleListEl.innerHTML = "";
     location.reload();
+    console.log("test");
   });
 };
 
@@ -172,8 +173,8 @@ const handleAcceptBtnClick = function(event) {
     id: this.id
   };
   console.log(idObj);
+  refreshExamples();
   API.updateExample(idObj).then(function() {
-    refreshExamples();
   });
 };
 
@@ -192,6 +193,7 @@ document.querySelectorAll(".delete").forEach(btn => {
 
 document.getElementById("add-task").addEventListener("click", function() {
   document.querySelector(".modalOne").style.display = "flex";
+  
 });
 
 document.querySelector(".closebtn").addEventListener("click", function() {
