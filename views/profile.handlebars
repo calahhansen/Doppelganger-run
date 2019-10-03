@@ -17,7 +17,7 @@
 <div id="home">
   <div class="container">
       <!-- Update Profile Modal -->
-        <div id="updateProfileModal">
+        {{!-- <div id="updateProfileModal">
           <!-- Update Profile Modal content-->
           <div class="modal-content">
             <div class="modal-header">
@@ -62,7 +62,7 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> --}}
         <!-- Trigger the Register modal with a button -->
                 <form>
                 <button type="button" id="updateBtn" class="btn btn-success btn-md">Update Profile</button>
@@ -73,9 +73,12 @@
           <div class="row">
             <div class="col-8 offset-2">
               <div class="card mt-4">
+                 <a class="nav-item nav-link" href="/profile">assignments</a>
+                 <a class="nav-item nav-link" href="/profile/creations">creations</a>
                 <div class="card-body">
                   <h5 class="card-title">My Current Jobs</h5>
                 <ul id="example-list" class="list-group">
+                 
 
           {{#each tasks}}
           <li data-id="{{this.id}}" class="list-group-item">
