@@ -1,6 +1,8 @@
 //let city;
 let exampleCityEl;
 
+const taskIds = [];
+
 // document.getElementById('modalbtn').addEventListener('click', function() {
 //   document.querySelector('.modalOne').style.display = 'flex';
 
@@ -54,11 +56,25 @@ $.getJSON("http://gd.geobytes.com/GetCityDetails?callback=?", function(data) {
 const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
 const exampleCategoryEl = document.getElementById("example-category");
-// const submitBtnEl = document.getElementById("submit");
+const submitBtnEl = document.getElementById("submit");
 const exampleListEl = document.getElementById("example-list");
 
 // The API object contains methods for each kind of request we'll make
 const API = {
+  updateExample: function(example) {
+    return fetch("/api/tasks", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PUT",
+      body: JSON.stringify(example)
+    }).then(function(res) {
+      console.log(res);
+
+      event.preventDefault();
+    });
+  },
+
   saveExample: function(example) {
     return fetch("/api/tasks", {
       headers: {
@@ -66,8 +82,15 @@ const API = {
       },
       method: "POST",
       body: JSON.stringify(example)
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(function(task) {
+        console.log(task);
+        taskIds.push(task.id);
+        console.log(taskIds);
+      });
   },
+
   getExamples: function() {
     return fetch("/api/tasks").then(res => res.json());
   },
@@ -145,8 +168,18 @@ const handleDeleteBtnClick = function(event) {
   });
 };
 
+const handleAcceptBtnClick = function(event) {
+  const idObj = {
+    id: this.id
+  };
+  console.log(idObj);
+  API.updateExample(idObj).then(function() {
+    refreshExamples();
+  });
+};
+
 // Add event listeners to the submit and delete buttons
-// submitBtnEl.addEventListener("click", handleFormSubmit);
+submitBtnEl.addEventListener("click", handleFormSubmit);
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });

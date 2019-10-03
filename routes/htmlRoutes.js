@@ -18,10 +18,12 @@ module.exports = function(app) {
   });
 
   //Home catagory outside
-  app.get("/home/outside", function(req, res) {
-    db.Task.findAll({ where: { category: "Outdoor Task" } }).then(function(
-      dbTasks
-    ) {
+  app.get("/home/outside", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Outdoor Task"
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
@@ -29,11 +31,18 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
   //Home catagory inside
-  app.get("/home/inside", function(req, res) {
-    db.Task.findAll({ where: { category: "Indoor Task" } }).then(function(
-      dbTasks
-    ) {
+  app.get("/home/inside", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Indoor Task"
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
@@ -42,10 +51,12 @@ module.exports = function(app) {
   });
 
   //Home catagory errand
-  app.get("/home/errand", function(req, res) {
-    db.Task.findAll({ where: { category: "Errand Run" } }).then(function(
-      dbTasks
-    ) {
+  app.get("/home/errand", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Errand Run"
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
@@ -54,10 +65,12 @@ module.exports = function(app) {
   });
 
   //Home catagory outside
-  app.get("/home/sale", function(req, res) {
-    db.Task.findAll({ where: { category: "Sell Item" } }).then(function(
-      dbTasks
-    ) {
+  app.get("/home/sale", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Sell Item"
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
@@ -67,7 +80,11 @@ module.exports = function(app) {
 
   // Load Task page and pass in an Task by id
   app.get("/tasks/:id", isAuthenticated, function(req, res) {
-    db.Task.findOne({ where: { id: req.params.id } }).then(function(doppeldb) {
+    db.Task.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(doppeldb) {
       res.render("task", {
         task: doppeldb
       });

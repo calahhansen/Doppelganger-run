@@ -19,20 +19,17 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task, {
-  //     as: "creations",
-  //     foreignKey: 'id'
+  User.associate = function(models) {
+    models.User.hasMany(models.Task, {
+      as: "creations"
+    });
+  };
 
-  //   });
-  // };
-
-  // User.associate = function(models) {
-  //   models.User.hasMany(models.Task, {
-  //     as: "assignments"
-  //     foreignKey: 'id'
-  //   });
-  // };
+  User.associate = function(models) {
+    models.User.hasMany(models.Task, {
+      as: "assignments"
+    });
+  };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
