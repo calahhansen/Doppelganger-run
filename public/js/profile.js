@@ -28,7 +28,7 @@ const handleDeleteBtnClick = function(event) {
   const idToDelete = event.target.parentElement.getAttribute("data-id");
   API.deleteExample(idToDelete).then(function() {
     refreshExamples();
-    // location.reload();
+    location.reload();
   });
 };
 
@@ -59,7 +59,7 @@ const refreshExamples = function() {
     });
 
     // exampleListEl.innerHTML = "";
-    // location.reload();
+    location.reload();
   });
 };
 
