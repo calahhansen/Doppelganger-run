@@ -6,8 +6,15 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/tasks", isAuthenticated, function(req, res) {
-    db.Task.findAll({}).then(function(dbTasks) {
+    db.Task.findAll({
+      where: {
+        assigneeId: {
+          $eq: null
+        }
+      }
+    }).then(function(dbTasks) {
       res.json(dbTasks);
+      console.log(dbTasks);
     });
   });
 
@@ -64,7 +71,8 @@ module.exports = function(app) {
   //when we have a user select a task in the task selection view, an association will be made between the task and the assignee
   //the assigneeId of the task in question must be assigned the primary key of the user in question
   //username
-  app.put("api/tasks", isAuthenticated, function(req, res) {
+  app.put("/api/tasks", isAuthenticated, function(req, res) {
+    console.log("putstuff");
     db.User.findOne({
       where: {
         email: req.user.email //could need to be modified according to when the info inside of a session actually is
@@ -80,7 +88,7 @@ module.exports = function(app) {
           }
         }
       ).then(function(task) {
-        res.JSON(task);
+        res.json = task;
       });
     });
   });

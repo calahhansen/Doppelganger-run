@@ -70,8 +70,6 @@ const API = {
       body: JSON.stringify(example)
     }).then(function(res) {
       console.log(res);
-
-      event.preventDefault();
     });
   },
 
@@ -169,6 +167,7 @@ const handleDeleteBtnClick = function(event) {
 };
 
 const handleAcceptBtnClick = function(event) {
+  event.preventDefault();
   const idObj = {
     id: this.id
   };
@@ -178,8 +177,15 @@ const handleAcceptBtnClick = function(event) {
   });
 };
 
+//event listener for accept task button
+document.querySelectorAll(".accept").forEach(btn => {
+  console.log("making a query");
+  btn.addEventListener("click", handleAcceptBtnClick);
+});
+
 // Add event listeners to the submit and delete buttons
 submitBtnEl.addEventListener("click", handleFormSubmit);
+
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });

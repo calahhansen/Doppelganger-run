@@ -9,7 +9,13 @@ module.exports = function(app) {
 
   //Home
   app.get("/home", isAuthenticated, function(req, res) {
-    db.Task.findAll({}).then(function(dbTasks) {
+    db.Task.findAll({
+      where: {
+        assigneeId: {
+          $eq: "1"
+        }
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
