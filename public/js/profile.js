@@ -5,7 +5,7 @@ const modal = document.getElementById("updateProfileModal");
 const btn = document.getElementById("updateBtn");
 
 // Get the <span> element that closes the modal
-const span = document.querySelector(".close");
+// const span = document.querySelector(".close");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -24,12 +24,11 @@ window.onclick = function(event) {
   }
 };
 
-
 const handleDeleteBtnClick = function(event) {
   const idToDelete = event.target.parentElement.getAttribute("data-id");
   API.deleteExample(idToDelete).then(function() {
     refreshExamples();
-    location.reload();
+    // location.reload();
   });
 };
 
@@ -59,8 +58,8 @@ const refreshExamples = function() {
       return liEl;
     });
 
-    exampleListEl.innerHTML = "";
-    location.reload();
+    // exampleListEl.innerHTML = "";
+    // location.reload();
   });
 };
 
@@ -88,8 +87,8 @@ const API = {
       .then(res => res.json())
       .then(function(task) {
         console.log(task);
-        taskIds.push(task.id);
-        console.log(taskIds);
+        // taskIds.push(task.id);
+        // console.log(taskIds);
       });
   },
 
