@@ -9,6 +9,20 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/assignedTasks", function(req, res) {
+    db.User.findOne({
+      email: req.user.email
+    }).then(function name(user) {
+      db.Task.findAll({
+        assigneeId: user.id
+      }).then(function(tasks) {
+        res.json = { tasks };
+      });
+    });
+  });
+
+  app.get("/api/createdTasks", function(req, res) {});
+
   // Create a new Profile===kong====
   app.post("/api/profile", function(req, res) {
     console.log("dbProfile: ", req.body);
