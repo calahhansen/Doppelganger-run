@@ -169,7 +169,10 @@ body {
 
 .tasktexter{
 color: whitesmoke;
-text-decoration: underline;
+}
+
+.tasktexter:hover {
+  text-decoration: underline;
 }
 
 /* ================================= CREATE PROFILE ====================================== */
