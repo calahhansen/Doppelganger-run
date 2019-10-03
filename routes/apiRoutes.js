@@ -21,7 +21,17 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/createdTasks", function(req, res) {});
+  app.get("/api/createdTasks", function(req, res) {
+    db.User.findOne({
+      email: req.user.email
+    }).then(function name(user) {
+      db.Task.findAll({
+        userId: user.id
+      }).then(function(tasks) {
+        res.json = { tasks };
+      });
+    });
+  });
 
   // Create a new Profile===kong====
   app.post("/api/profile", function(req, res) {
