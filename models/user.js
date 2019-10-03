@@ -21,13 +21,16 @@ module.exports = function(sequelize, DataTypes) {
 
   // User.associate = function(models) {
   //   models.User.hasMany(models.Task, {
-  //     as: "creations"
+  //     as: "creations",
+  //     foreignKey: 'id'
+
   //   });
   // };
 
   // User.associate = function(models) {
   //   models.User.hasMany(models.Task, {
   //     as: "assignments"
+  //     foreignKey: 'id'
   //   });
   // };
 

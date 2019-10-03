@@ -9,8 +9,6 @@ let exampleCityEl;
 // document.querySelector('.closebtn').addEventListener('click', function() {
 // document.querySelector('.modalOne').style.display = 'none';
 
-// });
-
 function getScript(url, success) {
   var script = document.createElement("script");
   script.src = url;
@@ -56,7 +54,7 @@ $.getJSON("http://gd.geobytes.com/GetCityDetails?callback=?", function(data) {
 const exampleTextEl = document.getElementById("example-text");
 const exampleDescriptionEl = document.getElementById("example-description");
 const exampleCategoryEl = document.getElementById("example-category");
-const submitBtnEl = document.getElementById("submit");
+// const submitBtnEl = document.getElementById("submit");
 const exampleListEl = document.getElementById("example-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -148,7 +146,15 @@ const handleDeleteBtnClick = function(event) {
 };
 
 // Add event listeners to the submit and delete buttons
-submitBtnEl.addEventListener("click", handleFormSubmit);
+// submitBtnEl.addEventListener("click", handleFormSubmit);
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
+});
+
+document.getElementById("modalbtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "flex";
+});
+
+document.querySelector(".closebtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "none";
 });

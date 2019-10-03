@@ -7,11 +7,5 @@ public/styles/styles.css
 config/passport.js
 public/js/index.js
 package-lock.json
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 89d4a4550f41d254aaa23ba77dea56da1f246ed5
 public/js/login.js
 
