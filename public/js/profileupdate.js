@@ -32,7 +32,7 @@ $("#submitBtn").on("click", function() {
     method: "POST",
     data: update
   }).then(function(response) {
-    window.location.reload();
+    update.location.reload();
   });
   console.log(update);
 });
