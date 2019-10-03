@@ -18,7 +18,7 @@ module.exports = function(app) {
   });
 
   //Home catagory outside
-  app.get("/home/outside", function(req, res) {
+  app.get("/home/outside", isAuthenticated, function(req, res) {
     db.Task.findAll({
       where: {
         category: "Outdoor Task"
@@ -37,7 +37,7 @@ module.exports = function(app) {
   });
 
   //Home catagory inside
-  app.get("/home/inside", function(req, res) {
+  app.get("/home/inside", isAuthenticated, function(req, res) {
     db.Task.findAll({
       where: {
         category: "Indoor Task"
@@ -51,7 +51,7 @@ module.exports = function(app) {
   });
 
   //Home catagory errand
-  app.get("/home/errand", function(req, res) {
+  app.get("/home/errand", isAuthenticated, function(req, res) {
     db.Task.findAll({
       where: {
         category: "Errand Run"
@@ -65,7 +65,7 @@ module.exports = function(app) {
   });
 
   //Home catagory outside
-  app.get("/home/sale", function(req, res) {
+  app.get("/home/sale", isAuthenticated, function(req, res) {
     db.Task.findAll({
       where: {
         category: "Sell Item"

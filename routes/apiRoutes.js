@@ -1,15 +1,17 @@
-var db = require("../models");
+const db = require("../models");
 const passport = require("../config/passport");
+
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/tasks", function(req, res) {
+  app.get("/api/tasks", isAuthenticated, function(req, res) {
     db.Task.findAll({}).then(function(dbTasks) {
       res.json(dbTasks);
     });
   });
 
-  app.get("/api/assignedTasks", function(req, res) {
+  app.get("/api/assignedTasks", isAuthenticated, function(req, res) {
     db.User.findOne({
       email: req.user.email
     }).then(function name(user) {
@@ -31,7 +33,7 @@ module.exports = function(app) {
   //we need to find the User primary key User.id that corresponds to the username from req.user.username
   //we'll apply this to a new field called UserId in req.body
   //we'll use req.body to create a new task in the Task model
-  app.post("/api/tasks", function(req, res) {
+  app.post("/api/tasks", isAuthenticated, function(req, res) {
     console.log(req.user);
     db.User.findOne({
       where: {
@@ -45,7 +47,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/createdTasks", function(req, res) {
+  app.get("/api/createdTasks", isAuthenticated, function(req, res) {
     db.User.findOne({
       email: req.user.email
     }).then(function name(user) {
@@ -62,7 +64,7 @@ module.exports = function(app) {
   //when we have a user select a task in the task selection view, an association will be made between the task and the assignee
   //the assigneeId of the task in question must be assigned the primary key of the user in question
   //username
-  app.put("api/tasks", function(req, res) {
+  app.put("api/tasks", isAuthenticated, function(req, res) {
     db.User.findOne({
       where: {
         email: req.user.email //could need to be modified according to when the info inside of a session actually is
@@ -84,7 +86,7 @@ module.exports = function(app) {
   });
 
   // Delete an Task by id
-  app.delete("/api/tasks/:id", function(req, res) {
+  app.delete("/api/tasks/:id", isAuthenticated, function(req, res) {
     db.Task.destroy({
       where: {
         id: req.params.id
