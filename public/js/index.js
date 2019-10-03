@@ -11,8 +11,6 @@ const taskIds = [];
 // document.querySelector('.closebtn').addEventListener('click', function() {
 // document.querySelector('.modalOne').style.display = 'none';
 
-// });
-
 function getScript(url, success) {
   var script = document.createElement("script");
   script.src = url;
@@ -182,11 +180,14 @@ const handleAcceptBtnClick = function(event) {
 
 // Add event listeners to the submit and delete buttons
 submitBtnEl.addEventListener("click", handleFormSubmit);
-
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
 });
 
-document.querySelectorAll(".accept").forEach(btn => {
-  btn.addEventListener("click", handleAcceptBtnClick);
+document.getElementById("modalbtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "flex";
+});
+
+document.querySelector(".closebtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "none";
 });
