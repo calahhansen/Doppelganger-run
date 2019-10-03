@@ -9,6 +9,20 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/assignedTasks", function(req, res) {
+    db.User.findOne({
+      email: req.user.email
+    }).then(function name(user) {
+      db.Task.findAll({
+        assigneeId: user.id
+      }).then(function(tasks) {
+        res.json = {
+          tasks
+        };
+      });
+    });
+  });
+
   // ===========================kong====
   // Create a new Task
 
@@ -27,6 +41,20 @@ module.exports = function(app) {
       req.body.UserId = user.id;
       db.Task.create(req.body).then(function(dbTask) {
         res.json(dbTask);
+      });
+    });
+  });
+
+  app.get("/api/createdTasks", function(req, res) {
+    db.User.findOne({
+      email: req.user.email
+    }).then(function name(user) {
+      db.Task.findAll({
+        userId: user.id
+      }).then(function(tasks) {
+        res.json = {
+          tasks
+        };
       });
     });
   });
