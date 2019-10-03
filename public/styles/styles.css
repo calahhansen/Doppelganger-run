@@ -16,14 +16,38 @@
   overflow: auto;
   float: right;
   flex-direction: column;
-  margin-left: 50%;
+  margin-left: 32%;
   margin-top: 10px;
+  width: 36%;
+}
+
+
+.form-group{
+  width: 90%;
+  margin-left: 5%;
+}
+
+#example-category{
+  width: 90%;
+  margin-left: 5%;
+}
+
+#example-text{
+  width: 100%;
+  margin-left: 0%;
+  border-style: groove;
+}
+
+#submit{
+  width: 90%;
+  margin-left: 5%;
 }
 
 .modalOneContent {
   background-color: green;
   text-align: center;
   border-radius: 4px;
+  border-color: black
 }
 
 input {
@@ -41,7 +65,7 @@ label {
   right: 0;
   left: 450;
   top: 220;
-  font-size: 32px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -139,6 +163,15 @@ body {
   display: none;
 }
 
+.list-group-item{
+  color: black;
+}
+
+.tasktexter{
+color: #0000FF;
+text-decoration: underline;
+}
+
 /* ================================= CREATE PROFILE ====================================== */
 
 #mainContainer {
@@ -148,6 +181,10 @@ body {
   padding-bottom: 50px;
   padding-right: 50px;
   border: none;
+}
+
+.containerlog{
+  background-color: green;
 }
 
 #profileImage {
@@ -198,3 +235,4 @@ body {
 .table {
   margin-top: 10px;
 }
+
