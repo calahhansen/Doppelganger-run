@@ -168,7 +168,7 @@ body {
 }
 
 .tasktexter{
-color: #0000FF;
+color: whitesmoke;
 text-decoration: underline;
 }
 
@@ -204,6 +204,15 @@ text-decoration: underline;
 .custom-file {
   margin-bottom: 20px;
   margin-left: 41%;
+}
+
+/* Index */
+#createbtn {
+  float: right;
+}
+
+.buttonpad {
+  margin: 15px;
 }
 
 /* Profile Btn */

@@ -16,13 +16,13 @@
 
 <div id="home">
   <div class="container">
-      <!-- Update Profile Modal -->
-        {{!-- <div id="updateProfileModal">
+      {{!-- <!-- Update Profile Modal -->
+        <div id="updateProfileModal">
           <!-- Update Profile Modal content-->
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title">Update Profile Form</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="updateProfileModal">&times;</button>
             </div>
             <div class="form-group">
               <label for="name">First name</label>
@@ -32,17 +32,20 @@
           </div>
         </div> --}}
         <!-- Trigger the Register modal with a button -->
-                <form>
+                {{!-- <form>
                 <button type="button" id="updateBtn" class="btn btn-success btn-md">Update Profile</button>
-                </form>
+                </form> --}}
     <div class="row">
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
           <div class="row">
             <div class="col-8 offset-2">
               <div class="card mt-4">
-                 <button class="btn btn-success nav-item nav-link"  onclick="window.location.href='/profile'">assignments</button>
-                 <button class="btn btn-danger nav-item nav-link"  onclick="window.location.href='/creations'">creations</button>
+                <h2 class="buttonpad">Filter Tasks by:</h2>
+                <div class="buttonpad">
+                 <button class="btn btn-success"  onclick="window.location.href='/profile'">Assigned to me</button>
+                 <button id="createbtn" class="btn btn-success"  onclick="window.location.href='/creations'">Created by me</button>
+                 </div>
                 <div class="card-body">
                   <h5 class="card-title">My Current Jobs</h5>
                 <ul id="example-list" class="list-group">
@@ -58,7 +61,7 @@
             <br>
             <a class="tasktexter" href="tasks/{{this.id}}">{{this.city}}</a>
             <br></br>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <button class="btn btn-danger float-right delete">Delete</button>
           </li>
           <br>
           {{/each}}
