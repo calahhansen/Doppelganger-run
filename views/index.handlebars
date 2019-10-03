@@ -1,4 +1,4 @@
-<body>
+
 
   <!-- Navagator with links -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -17,7 +17,7 @@
   </nav>
   {{!-- POST a JOB MODAL --}}
   <div id="home">
-    <div class="modalOne">
+    <div class="modalOne" style="display: none">
       <div class="modalOneContent">
         <div class="closebtn">x</div>
         <form class="clearfix mb-4" action="POST">
@@ -38,7 +38,7 @@
             <option value="Sell Item">Sell Item</option>
           </select>
           <br></br>
-          <button id="modalbtn" class="btn btn-success float-right">Submit</button>
+          <button id="submit" class="btn btn-success float-right">Submit</button>
         </form>
         <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
           placeholder="Job Description">
@@ -76,6 +76,8 @@
   <div class="w3-container">
     <div class="w3-display-container w3-green" style="height:500px;">
       <div class="w3-display-middle">
+        <br>
+        <button id="modalbtn">Add Task</button>
         <br><br>
         <h3>Search for...</h3>
         <br><br>
@@ -109,4 +111,3 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/js/index.js"></script>
-</body>

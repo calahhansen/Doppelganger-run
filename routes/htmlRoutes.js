@@ -97,9 +97,9 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("/logIn", function(req, res) {
-    res.render("logIn");
-  });
+  // app.get("/logIn", function(req, res) {
+  //   res.render("logIn");
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", isAuthenticated, function(req, res) {
