@@ -1,6 +1,16 @@
 //let city;
 let exampleCityEl;
 
+const taskIds = [];
+
+// document.getElementById('modalbtn').addEventListener('click', function() {
+//   document.querySelector('.modalOne').style.display = 'flex';
+
+// });
+
+// document.querySelector('.closebtn').addEventListener('click', function() {
+// document.querySelector('.modalOne').style.display = 'none';
+
 function getScript(url, success) {
   var script = document.createElement("script");
   script.src = url;
@@ -51,6 +61,18 @@ const exampleListEl = document.getElementById("example-list");
 
 // The API object contains methods for each kind of request we'll make
 const API = {
+  updateExample: function(example) {
+    return fetch("/api/tasks", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PUT",
+      body: JSON.stringify(example)
+    }).then(function(res) {
+      console.log(res);
+    });
+  },
+
   saveExample: function(example) {
     return fetch("/api/tasks", {
       headers: {
@@ -58,8 +80,15 @@ const API = {
       },
       method: "POST",
       body: JSON.stringify(example)
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(function(task) {
+        console.log(task);
+        taskIds.push(task.id);
+        console.log(taskIds);
+      });
   },
+
   getExamples: function() {
     return fetch("/api/tasks").then(res => res.json());
   },
@@ -89,12 +118,13 @@ const refreshExamples = function() {
       buttonEl.addEventListener("click", handleDeleteBtnClick);
 
       liEl.append(buttonEl);
-
+      location.reload();
       return liEl;
     });
 
     exampleListEl.innerHTML = "";
     location.reload();
+    console.log("test");
   });
 };
 
@@ -102,6 +132,7 @@ const refreshExamples = function() {
 // Save the new example to the db and refresh the list
 const handleFormSubmit = function(event) {
   event.preventDefault();
+  console.log("handleformsubmit");
 
   const example = {
     text: exampleTextEl.value.trim(),
@@ -109,14 +140,9 @@ const handleFormSubmit = function(event) {
     category: exampleCategoryEl.value.trim(),
     city: exampleCityEl
   };
-
-  if (
-    !(
-      example.text &&
-      example.description &&
-      example.category
-    )
-  ) {
+  console.log("posting this stuff");
+  console.log(example);
+  if (!(example.text && example.description && example.category)) {
     alert("You must enter aa title, description, creator, and category!");
     return;
   }
@@ -141,8 +167,35 @@ const handleDeleteBtnClick = function(event) {
   });
 };
 
+const handleAcceptBtnClick = function(event) {
+  event.preventDefault();
+  const idObj = {
+    id: this.id
+  };
+  console.log(idObj);
+  refreshExamples();
+  API.updateExample(idObj).then(function() {
+  });
+};
+
+//event listener for accept task button
+document.querySelectorAll(".accept").forEach(btn => {
+  console.log("making a query");
+  btn.addEventListener("click", handleAcceptBtnClick);
+});
+
 // Add event listeners to the submit and delete buttons
 submitBtnEl.addEventListener("click", handleFormSubmit);
+
 document.querySelectorAll(".delete").forEach(btn => {
   btn.addEventListener("click", handleDeleteBtnClick);
+});
+
+document.getElementById("add-task").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "flex";
+  
+});
+
+document.querySelector(".closebtn").addEventListener("click", function() {
+  document.querySelector(".modalOne").style.display = "none";
 });

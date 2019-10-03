@@ -1,4 +1,6 @@
 var db = require("../models");
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
@@ -6,8 +8,74 @@ module.exports = function(app) {
   });
 
   //Home
-  app.get("/home", function(req, res) {
-    db.Task.findAll({}).then(function(dbTasks) {
+  app.get("/home", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        assigneeId: null
+      }
+    }).then(function(dbTasks) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory outside
+  app.get("/home/outside", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Outdoor Task"
+      }
+    }).then(function(dbTasks) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
+
+  //Home catagory inside
+  app.get("/home/inside", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Indoor Task"
+      }
+    }).then(function(dbTasks) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory errand
+  app.get("/home/errand", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Errand Run"
+      }
+    }).then(function(dbTasks) {
+      res.render("index", {
+        msg: "Welcome!",
+        tasks: dbTasks
+      });
+    });
+  });
+
+  //Home catagory outside
+  app.get("/home/sale", isAuthenticated, function(req, res) {
+    db.Task.findAll({
+      where: {
+        category: "Sell Item"
+      }
+    }).then(function(dbTasks) {
       res.render("index", {
         msg: "Welcome!",
         tasks: dbTasks
@@ -16,8 +84,12 @@ module.exports = function(app) {
   });
 
   // Load Task page and pass in an Task by id
-  app.get("/tasks/:id", function(req, res) {
-    db.Task.findOne({ where: { id: req.params.id } }).then(function(doppeldb) {
+  app.get("/tasks/:id", isAuthenticated, function(req, res) {
+    db.Task.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(doppeldb) {
       res.render("task", {
         task: doppeldb
       });
@@ -25,9 +97,49 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("/profile", function(req, res) {
-    res.render("profile");
+  app.get("/profile", isAuthenticated, function(req, res) {
+    console.log(req.user)
+    db.User.findOne({where: {
+      email: req.user.email
+    }}).then(function(user){
+      console.log(user);
+      console.log("should be a user returned above");
+      db.Task.findAll({
+        where: {
+          assigneeId: user.id
+        }
+      }).then(function(dbTasks) {
+        res.render("profile", {
+          msg: "Welcome!",
+          tasks: dbTasks
+        });
+      });
+    }) 
   });
+
+  // Render 404 page for any unmatched routes
+  app.get("/creations", isAuthenticated, function(req, res) {
+    console.log(req.user)
+    db.User.findOne({where: {
+      email: req.user.email
+    }}).then(function(user){
+      db.Task.findAll({
+        where: {
+          userId: user.id
+        }
+      }).then(function(dbTasks) {
+        res.render("profile", {
+          msg: "Welcome!",
+          tasks: dbTasks
+        });
+      });
+    }) 
+  });
+
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+   });
 
   // Render 404 page for any unmatched routes
   app.get("/logIn", function(req, res) {
@@ -35,7 +147,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", isAuthenticated, function(req, res) {
     res.render("404");
   });
 };
